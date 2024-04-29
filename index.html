@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html style="height: 100vh">
+  <head>
+    <title>Potioneer</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div id="content">
+      <h1>Potioneer (pre-alpha)</h1>
+      <div style="height: calc(100% - 70px - 60px);" id="workshop">
+        <div class="workshop-row">
+          <span class="workstation empty-workstation"></span>
+          <span class="workstation empty-workstation"></span>
+          <span class="workstation empty-workstation"></span>
+        </div>
+        <div class="workshop-row">
+          <span class="workstation empty-workstation"></span>
+          <span class="workstation empty-workstation"></span>
+          <span class="workstation empty-workstation"></span>
+        </div>
+      </div>
+      <div style="width: 100%; text-align: center; position: fixed;">
+        <div id="inventory-bar">
+          <span id="inventory-slots"></span>
+        </div>
+      </div>
+    </div>
+    <div style="display:none">
+      <span class="workstation" id="shelf-factory">
+      </span>
+      <span class="workstation" id="cauldron-stand-factory">
+        <div class="canvas-container" style="width: 100%; height: 100%;">
+          <canvas id="cauldron-canvas" class="drag-target"></canvas>
+        </div>
+      </span>
+    </div>
+    
+    <script src="js/model/ingredients.js"></script>
+    <script src="js/model/brewing.js"></script>
+    <script src="js/model/potions.js"></script>
+    <script src="js/utility.js"></script>
+    <script src="js/model/workshop.js"></script>
+    
+    <script src="js/view/workshop.js"></script>
+    <script src="js/view/utility.js"></script>
+    
+    <script src="js/main.js"></script>
+  </body>
+</html>
