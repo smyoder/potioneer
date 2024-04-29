@@ -7,21 +7,32 @@
   <body>
     <div id="content">
       <h1>Potioneer (pre-alpha)</h1>
-      <div style="height: calc(100% - 70px - 60px);" id="workshop">
-        <div class="workshop-row">
-          <span class="workstation empty-workstation"></span>
-          <span class="workstation empty-workstation"></span>
-          <span class="workstation empty-workstation"></span>
-        </div>
-        <div class="workshop-row">
-          <span class="workstation empty-workstation"></span>
-          <span class="workstation empty-workstation"></span>
-          <span class="workstation empty-workstation"></span>
-        </div>
+      <div class="shop-ui">
+        <span class="workshop-arrow"><div>&lt;</div></span>
+        <span id="workshop">
+          <div class="workshop-row">
+            <span class="workstation empty-workstation"></span>
+            <span class="workstation empty-workstation"></span>
+            <span class="workstation empty-workstation"></span>
+          </div>
+          <div class="workshop-row">
+            <span class="workstation empty-workstation"></span>
+            <span class="workstation empty-workstation"></span>
+            <span class="workstation empty-workstation"></span>
+          </div>
+        </span>
+        <span class="workshop-arrow"><div>&gt;</div></span>
       </div>
       <div style="width: 100%; text-align: center; position: fixed;">
         <div id="inventory-bar">
           <span id="inventory-slots"></span>
+          <span id="control-panel">
+            <span id="time-panel">
+              <div style="height:33%;">Day 1</div>
+              <div style="height:33%;">00:00:00</div>
+              <div style="height:33%;"><button style="height:calc(100%); vertical-align: top;">Wait</button></div>
+            </span>
+          </span>
         </div>
       </div>
     </div>
