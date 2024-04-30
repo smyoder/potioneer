@@ -146,16 +146,33 @@ body {
   vertical-align: top;
 }
 
-#control-panel {
+#user-panel {
   display: inline-block;
   width: 39%;
+  height: 100%;
+}
+
+#control-panel {
+  display: inline-block;
+  width: 48%;
   height: 100%;
 }
 
 #time-panel {
   display: inline-block;
   height: 100%;
+  width: 48%;
   text-align: right;
   vertical-align: top;
   font-size: 3vh;
+}
+
+#examining-control {
+  display: inline-block;
+  height: 100%;
+  aspect-ratio: 1;
+}
+
+#examining-control > img {
+  width: 95%;
 }

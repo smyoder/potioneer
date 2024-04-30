@@ -28,6 +28,7 @@ cauldronImg.src = "img/cauldron_clear.png";
 var cauldronMaskImg = new Image();
 cauldronMaskImg.src = "img/cauldron_mask.png";
 
+var examining = false;
 
 var fillingCauldron = false;
 var heatingCauldron = false;
