@@ -8,7 +8,7 @@ var cauldronStand = new CauldronStand(cauldron);
 var workshop = [[new Shelf(), cauldronStand, new Shelf(), null], [null, null, null, null]];
 for(let i = 0; i < 2; i++) {
   for(let j = 0; j < 5; j++) {
-    workshop[0][0].inventory[i][j] = new RawIngredient("Debug", 1, 0, [0, 0, 0, 0], "img/powder.png");
+    workshop[0][0].inventory[i][j] = new RawIngredient("Debug", "powder", "white", 1, 0, [0, 0, 0, 0], "img/powder.png");
   }
 }
 initWorkshop(workshop);

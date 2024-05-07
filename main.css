@@ -177,3 +177,16 @@ body {
 #examining-control > img {
   width: 95%;
 }
+
+#info-panel {
+  display: none;
+  position: fixed;
+  width: 20%;
+  background-color: white;
+  color: black;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  left: 0px;
+  top: 0px;
+}

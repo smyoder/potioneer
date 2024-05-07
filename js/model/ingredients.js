@@ -1,6 +1,8 @@
 class Substance {
-  constructor(essence, volume, imgSrc) {
+  constructor(essence, form, color, volume, imgSrc) {
     this.essence = essence;
+    this.form = form;
+    this.color = color;
     this.volume = volume;
     this.imgSrc = imgSrc;
   }
@@ -39,11 +41,23 @@ class Substance {
   clone() {
     return new Substance(Array.from(this.essence), this.volume, this.imgSrc);
   }
+  
+  get description() {
+    return `A ${this.color} ${this.form}.`
+  }
+  
+  get approxVolume() {
+    return `~${Math.round(this.volume)} oz.`
+  }
+  
+  get info() {
+    return `${this.description}<br/>${this.approxVolume}`
+  }
 }
 
 class Ingredient extends Substance {
-  constructor(essence, volume, name, pureEssence, imgSrc) {
-    super(essence, volume, imgSrc);
+  constructor(essence, form, color, volume, name, pureEssence, imgSrc) {
+    super(essence, form, color, volume, imgSrc);
     this.name = name;
     this.essence = essence;
     this.quality = cosSim(essence, pureEssence);
@@ -65,11 +79,12 @@ function generateImpurity(impurity, pureEssence) {
   for(let i = 0; i < impureVector.length; i++) {
     impureVector *= essLen;
   }
+  return impureVector;
 }
 
 class RawIngredient extends Ingredient {
-  constructor(name, volume, impurity, pureEssence, imgSrc) {
-    super(name, volume, generateImpurity(impurity, pureEssence), pureEssence, imgSrc);
+  constructor(name, form, color, volume, impurity, pureEssence, imgSrc) {
+    super(generateImpurity(impurity, pureEssence), form, color, volume, name, pureEssence, imgSrc);
   }
 }
 
