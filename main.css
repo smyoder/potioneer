@@ -171,6 +171,7 @@ body {
   display: inline-block;
   height: 100%;
   aspect-ratio: 1;
+  cursor: pointer;
 }
 
 #examining-control > img {

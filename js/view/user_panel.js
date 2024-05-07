@@ -1,4 +1,3 @@
-/***************************Inventory***************************/
 function initInventory(inventory) {
   let inventoryDOM = document.getElementById("inventory-slots");
   for(let i = 0; i < inventory.length; i++) {
@@ -12,5 +11,15 @@ function initInventory(inventory) {
       dropIngredient(ev, slotDOM);
     }
     inventoryDOM.appendChild(slotDOM);
+  }
+}
+
+function toggleExamining() {
+  examining = !examining;
+  let eyeDOM = document.getElementById("examining-control").children[0];
+  if(examining) {
+    eyeDOM.src = "img/eye_open.png";
+  } else {
+    eyeDOM.src = "img/eye_closed.png";
   }
 }

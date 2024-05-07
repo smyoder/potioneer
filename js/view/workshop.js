@@ -24,13 +24,9 @@ function initWorkshop(workshop) {
 /************************Caludron Stand*************************/
 function createCauldronStand(stand) {
   let standDOM = document.getElementById("cauldron-stand-factory").cloneNode(true);
-  standDOM.id = getId("cauldron-stand");
+  linkIds("cauldron-stand", standDOM, stand);
   let cauldronDOM = standDOM.querySelector("#cauldron-canvas");
-  // let infoDOM = standDOM.querySelector("#cauldron-info");
-  cauldronDOM.id = getId("cauldron");
-  // infoDOM.id = getId("cauldron-info");
-  stand.cauldron.id = cauldronDOM.id;
-  // stand.infoId = infoDOM.id;
+  linkIds("cauldron", cauldronDOM, stand.cauldron);
   return standDOM;
 }
 
@@ -67,7 +63,7 @@ function dropIngredient(ev, target) {
 
 function createShelf(shelf) {
   let shelfDOM = document.getElementById("shelf-factory").cloneNode(true);
-  shelfDOM.id = getId("shelf");
+  linkIds("shelf", shelf, shelfDOM);
   
   // For each row on the shelf
   for(let i = 0; i < shelf.inventory.length; i++) {
@@ -84,7 +80,7 @@ function createShelf(shelf) {
       if(shelf.inventory[i][j] !== null) {
         let itemContainer = document.createElement("div");
         itemContainer.draggable = true;
-        itemContainer.id = `bottle-spot${i}-${j}`;
+        linkIds("item", itemContainer, shelf.inventory[i][j])
         itemContainer.ondragstart = dragIngredient;
         itemContainer.ondragend = ingredientDragEnd;
         

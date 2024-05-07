@@ -1,10 +1,3 @@
-var idCounter = 0;
-function getId(name) {
-  let id = `name${idCounter}`;
-  idCounter++;
-  return id;
-}
-
 function randFloat(lower, upper) {
   return Math.random() * (upper - lower) + lower;
 }

@@ -1,3 +1,5 @@
+var gameObjects = {}
+
 var inventory = [null, null, null, null, null, null, null, null, null, null];
 initInventory(inventory);
 
