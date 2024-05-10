@@ -1,6 +1,8 @@
 /************************SHORTCUTS************************/
 function shortcuts(event) {
-  
+  if(event.key == "e") {
+    toggleExamining();
+  }
 }
 
 function initInventory(inventory) {
@@ -26,14 +28,13 @@ function toggleExamining() {
     eyeDOM.src = "img/eye_open.png";
   } else {
     eyeDOM.src = "img/eye_closed.png";
+    hideInfoPanel();
   }
 }
 
-var showInfoPanel = false;
 function displayInfoPanel(event, object) {
   if(object && object.info) {
     if(examining) {
-      showInfoPanel = true;
       let infoPanel = document.getElementById("info-panel");
       infoPanel.style.display = "block";
       infoPanel.style.left = `${event.pageX + 1}px`;
@@ -43,16 +44,19 @@ function displayInfoPanel(event, object) {
   }
 }
 
-function hasInfoMouseMove(event) {
-  if(showInfoPanel) {
+function hasInfoMouseMove(event, object) {
+  if(examining) {
     let infoPanel = document.getElementById("info-panel");
+    if(infoPanel.style.display == "none") {
+      infoPanel.style.display = "block";
+      infoPanel.innerHTML = object.info;
+    }
     infoPanel.style.left = `${event.pageX + 1}px`;
     infoPanel.style.top = `${event.pageY + 1}px`;
   }
 }
 
-function hideInfoPanel(object) {
-  showInfoPanel = false;
+function hideInfoPanel() {
   let infoPanel = document.getElementById("info-panel");
   infoPanel.style.display = "none";
 }

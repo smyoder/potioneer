@@ -1,6 +1,9 @@
-function sizeCanvas(canvas, parent) {
-  canvas.width = parent.offsetWidth;
-  canvas.height = parent.offsetHeight;
+function resizeCanvases() {
+  let canvases = document.getElementsByTagName("canvas");
+  for(let canvas of canvases) {
+    canvas.width = canvas.parentNode.offsetWidth;
+    canvas.height = canvas.parentNode.offsetHeight;
+  }
 }
 
 var idCounter = 0;

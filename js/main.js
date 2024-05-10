@@ -1,3 +1,4 @@
+// Init page
 var gameObjects = {}
 
 var inventory = [null, null, null, null, null, null, null, null, null, null];
@@ -12,8 +13,11 @@ for(let i = 0; i < 2; i++) {
   }
 }
 initWorkshop(workshop);
+resizeCanvases();
 
-// let cauldronInfo = document.getElementById(cauldronStand.infoId);
+// Add listeners
+document.onkeyup = shortcuts;
+window.onresize = resizeCanvases;
 
 // Game constants
 const FILL_PER_TICK = 1;
@@ -62,7 +66,7 @@ function render() {
   ctx.fillStyle = "rgba(0, 255, 255, 0.5)";
   ctx.fillRect(0, canvas.height - fillAmount, canvas.width, fillAmount);
   
-  ctx.drawImage(cauldronImg, 0, 0);
+  ctx.drawImage(cauldronImg, 0, 0, canvas.width, canvas.height);
   
   // Heat Gradient
   let gradient = ctx.createLinearGradient(0, canvas.height, 0, 0);

@@ -5,6 +5,7 @@ class Substance {
     this.color = color;
     this.volume = volume;
     this.imgSrc = imgSrc;
+    this.observations = [];
   }
   
   get energy() {
@@ -19,6 +20,12 @@ class Substance {
     let sE = [];
     for(let i = 0; i < this.essence.length; i++) {
       sE.push(this.essence[i] * this.volume);
+    }
+  }
+  
+  observe(tool) {
+    for(let fieldName of tool.fieldNames) {
+      
     }
   }
   
@@ -43,15 +50,10 @@ class Substance {
   }
   
   get description() {
-    return `A ${this.color} ${this.form}.`
-  }
-  
-  get approxVolume() {
-    return `~${Math.round(this.volume)} oz.`
-  }
-  
-  get info() {
-    return `${this.description}<br/>${this.approxVolume}`
+    let desc = this.name;
+    for(let observation of this.observations) {
+      desc += "<br/>" + observation.value;
+    }
   }
 }
 

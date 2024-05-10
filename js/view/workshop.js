@@ -13,9 +13,6 @@ function initWorkshop(workshop) {
         }
         let oldDOM = workshopDOM.children[i].children[j];
         workshopDOM.children[i].replaceChild(dom, oldDOM);
-        if(workstand instanceof CauldronStand) {
-          cauldronStandLoaded(workstand, dom);
-        }
       }
     }
   }
@@ -28,11 +25,6 @@ function createCauldronStand(stand) {
   let cauldronDOM = standDOM.querySelector("#cauldron-canvas");
   linkIds("cauldron", cauldronDOM, stand.cauldron);
   return standDOM;
-}
-
-function cauldronStandLoaded(stand, standDOM) {
-  let cauldronDOM = document.getElementById(stand.cauldron.id);
-  sizeCanvas(cauldronDOM, cauldronDOM.parentElement);
 }
 
 /****************************Shelves****************************/
@@ -83,9 +75,9 @@ function createShelf(shelf) {
         linkIds("item", itemContainer, shelf.inventory[i][j])
         itemContainer.ondragstart = dragIngredient;
         itemContainer.ondragend = ingredientDragEnd;
-        itemContainer.onmousemove = hasInfoMouseMove;
-        itemContainer.onmouseover = evt => displayInfoPanel(evt, gameObjects[itemContainer.id]);
-        itemContainer.onmouseout = evt => hideInfoPanel(gameObjects[itemContainer.id]);
+        itemContainer.onmousemove = event => hasInfoMouseMove(event, gameObjects[itemContainer.id]);
+        itemContainer.onmouseover = event => displayInfoPanel(event, gameObjects[itemContainer.id]);
+        itemContainer.onmouseout = event => hideInfoPanel();
         
         let itemDOM = document.createElement("img");
         itemDOM.src = shelf.inventory[i][j].imgSrc;
