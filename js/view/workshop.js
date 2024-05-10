@@ -76,7 +76,7 @@ function createShelf(shelf) {
         itemContainer.ondragstart = dragIngredient;
         itemContainer.ondragend = ingredientDragEnd;
         itemContainer.onmousemove = event => hasInfoMouseMove(event, gameObjects[itemContainer.id]);
-        itemContainer.onmouseover = event => displayInfoPanel(event, gameObjects[itemContainer.id]);
+        itemContainer.onmouseover = event => examine(event, gameObjects[itemContainer.id]);
         itemContainer.onmouseout = event => hideInfoPanel();
         
         let itemDOM = document.createElement("img");

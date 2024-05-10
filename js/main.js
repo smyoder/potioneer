@@ -3,6 +3,7 @@ var gameObjects = {}
 
 var inventory = [null, null, null, null, null, null, null, null, null, null];
 initInventory(inventory);
+var eyes = new Tool("eyes", ["appearance", "volume"], 0);
 
 var cauldron = new Cauldron(100, 1);
 var cauldronStand = new CauldronStand(cauldron);

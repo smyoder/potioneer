@@ -32,28 +32,20 @@ function toggleExamining() {
   }
 }
 
-function displayInfoPanel(event, object) {
-  if(object && object.info) {
-    if(examining) {
-      let infoPanel = document.getElementById("info-panel");
-      infoPanel.style.display = "block";
-      infoPanel.style.left = `${event.pageX + 1}px`;
-      infoPanel.style.top = `${event.pageY + 1}px`;
-      infoPanel.innerHTML = object.info;
-    }
+function examine(event, object) {
+  if(object && examining) {
+    eyes.measure(object);
+    
+    let infoPanel = document.getElementById("info-panel");
+    infoPanel.style.display = "block";
+    infoPanel.style.left = `${event.pageX + 1}px`;
+    infoPanel.style.top = `${event.pageY + 1}px`;
+    infoPanel.innerHTML = object.description;
   }
 }
 
 function hasInfoMouseMove(event, object) {
-  if(examining) {
-    let infoPanel = document.getElementById("info-panel");
-    if(infoPanel.style.display == "none") {
-      infoPanel.style.display = "block";
-      infoPanel.innerHTML = object.info;
-    }
-    infoPanel.style.left = `${event.pageX + 1}px`;
-    infoPanel.style.top = `${event.pageY + 1}px`;
-  }
+  examine(event, object);
 }
 
 function hideInfoPanel() {

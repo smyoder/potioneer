@@ -5,7 +5,7 @@ class Substance {
     this.color = color;
     this.volume = volume;
     this.imgSrc = imgSrc;
-    this.observations = [];
+    this.observations = {};
   }
   
   get energy() {
@@ -20,12 +20,6 @@ class Substance {
     let sE = [];
     for(let i = 0; i < this.essence.length; i++) {
       sE.push(this.essence[i] * this.volume);
-    }
-  }
-  
-  observe(tool) {
-    for(let fieldName of tool.fieldNames) {
-      
     }
   }
   
@@ -49,11 +43,16 @@ class Substance {
     return new Substance(Array.from(this.essence), this.volume, this.imgSrc);
   }
   
+  get appearance() {
+    return `A ${this.color} ${this.form}.`;
+  }
+  
   get description() {
     let desc = this.name;
-    for(let observation of this.observations) {
-      desc += "<br/>" + observation.value;
+    for(let key in this.observations) {
+      desc += "<br/>" + this.observations[key].value;
     }
+    return desc;
   }
 }
 
