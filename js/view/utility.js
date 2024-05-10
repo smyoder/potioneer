@@ -3,6 +3,9 @@ function resizeCanvases() {
   for(let canvas of canvases) {
     canvas.width = canvas.parentNode.offsetWidth;
     canvas.height = canvas.parentNode.offsetHeight;
+    if(canvas.id.includes("cauldron")) {
+      renderCauldron(canvas.id);
+    }
   }
 }
 
