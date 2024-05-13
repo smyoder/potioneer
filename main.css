@@ -25,6 +25,16 @@ body {
   color: white;
 }
 
+canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.canvas-container {
+  position: relative;
+}
+
 .shop-ui {
   height: calc(100% - 70px - 100px);
 }
@@ -86,27 +96,24 @@ body {
   vertical-align: top;
 }
 
-.drag-target > * {
+.drag-box {
   width: 100%;
   height: 100%;
   cursor: grab;
   position: relative;
+  text-align: center;
 }
 
-.drag-target > *:hover {
+.drag-box:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.drag-target > *:active {
+.drag-box:active {
   cursor: grabbing;
 }
 
-.drag-target > * > * {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+.drag-box > * {
+  margin: auto;
 }
 
 .info {

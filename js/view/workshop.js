@@ -83,11 +83,3 @@ function createShelf(shelf) {
   }
   return shelfDOM;
 }
-
-function sizeShelfItem(itemDOM) {
-  if(itemDOM.width > itemDOM.height) {
-    itemDOM.style = "max-width: 100%;";
-  } else {
-    itemDOM.style = "max-height: 100%;";
-  }
-}

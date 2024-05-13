@@ -1,5 +1,6 @@
 function createContainerDOM(container) {
   let dragDOM = document.createElement("div");
+  dragDOM.classList.add("drag-box");
   dragDOM.draggable = true;
   dragDOM.ondragstart = dragIngredient;
   dragDOM.ondragend = ingredientDragEnd;
@@ -8,21 +9,23 @@ function createContainerDOM(container) {
   dragDOM.onmouseout = event => hideInfoPanel();
   
   let canvasSizer = document.createElement("div");
+  canvasSizer.classList.add("canvas-container");
   
   let containerDOM = document.createElement("canvas");
   containerDOM.draggable = false;
   linkIds("container", containerDOM, container)
   containerDOM.onload = () => sizeShelfItem(containerDOM);
-  canvasSizer.appendChild(containerDOM);
-  dragDOM.appendChild(canvasSizer);
   
   let containerImage = document.getElementById(container.backImgId);
+  canvasSizer.style.aspectRatio = `${containerImage.width} / ${containerImage.height}`;
   if(containerImage.width > containerImage.height) {
-    canvasSizer.style.width = "100%";
+    canvasSizer.style.maxWidth = "100%";
   } else {
-    canvasSizer.style.height = "100%";
+    canvasSizer.style.maxHeight = "100%";
   }
-  canvasSizer.style.aspectRatio = containerImage.height / containerImage.width;
+  
+  canvasSizer.appendChild(containerDOM);
+  dragDOM.appendChild(canvasSizer);
   
   return dragDOM;
 }
