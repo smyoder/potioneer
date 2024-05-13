@@ -71,8 +71,8 @@ body {
 }
 
 .shelf {
-  height: calc(20% - 10px);
-  width: calc(100% - 10px);
+  height: calc(20% - 0.5vh);
+  width: calc(100% - 0.5vh);
   border-style: solid;
   border-width: 0.5vh;
   border-color: #33210C;

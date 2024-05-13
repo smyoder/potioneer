@@ -5,6 +5,8 @@ function resizeCanvases() {
     canvas.height = canvas.parentNode.offsetHeight;
     if(canvas.id.includes("cauldron")) {
       renderCauldron(canvas.id);
+    } else if(canvas.id.includes("container")) {
+      renderContainer(canvas.id);
     }
   }
 }

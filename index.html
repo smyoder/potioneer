@@ -44,23 +44,28 @@
     <div style="display:none">
       <span class="workstation" id="shelf-factory">
       </span>
+      <img id="jar-back-image" src="img/jar_back.png"/>
+      <img id="jar-front-image" src="img/jar_front.png"/>
+      
       <span class="workstation" id="cauldron-stand-factory">
         <div class="canvas-container" style="width: 100%; height: 100%;">
           <canvas id="cauldron-canvas" class="drag-target"></canvas>
-          <img id="cauldron-image" style="display: none;" src="img/cauldron_clear.png"/>
         </div>
       </span>
+      <img id="cauldron-image" src="img/cauldron_clear.png"/>
     </div>
     
     <div id="info-panel">This is a pretty log debug description<br/>Encompassing<br/>Multiple lines with some information the user might want to take a look at.</div>
     
     <script src="js/model/ingredients.js"></script>
     <script src="js/model/brewing.js"></script>
+    <script src="js/model/containers.js"></script>
     <script src="js/model/potions.js"></script>
     <script src="js/utility.js"></script>
     <script src="js/model/workshop.js"></script>
     <script src="js/model/observations.js"></script>
     
+    <script src="js/view/containers.js"></script>
     <script src="js/view/workshop.js"></script>
     <script src="js/view/utility.js"></script>
     <script src="js/view/interface.js"></script>

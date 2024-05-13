@@ -1,10 +1,9 @@
 class Substance {
-  constructor(essence, form, color, volume, imgSrc) {
+  constructor(essence, form, color, volume) {
     this.essence = essence;
     this.form = form;
     this.color = color;
     this.volume = volume;
-    this.imgSrc = imgSrc;
     this.observations = {};
   }
   
@@ -57,8 +56,8 @@ class Substance {
 }
 
 class Ingredient extends Substance {
-  constructor(essence, form, color, volume, name, pureEssence, imgSrc) {
-    super(essence, form, color, volume, imgSrc);
+  constructor(essence, form, color, volume, name, pureEssence) {
+    super(essence, form, color, volume);
     this.name = name;
     this.essence = essence;
     this.quality = cosSim(essence, pureEssence);
@@ -84,8 +83,8 @@ function generateImpurity(impurity, pureEssence) {
 }
 
 class RawIngredient extends Ingredient {
-  constructor(name, form, color, volume, impurity, pureEssence, imgSrc) {
-    super(generateImpurity(impurity, pureEssence), form, color, volume, name, pureEssence, imgSrc);
+  constructor(name, form, color, volume, impurity, pureEssence) {
+    super(generateImpurity(impurity, pureEssence), form, color, volume, name, pureEssence);
   }
 }
 

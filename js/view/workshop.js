@@ -70,21 +70,7 @@ function createShelf(shelf) {
       rowDOM.appendChild(shelfSpot);
       // Put the item in the slot
       if(shelf.inventory[i][j] !== null) {
-        let itemContainer = document.createElement("div");
-        itemContainer.draggable = true;
-        linkIds("item", itemContainer, shelf.inventory[i][j])
-        itemContainer.ondragstart = dragIngredient;
-        itemContainer.ondragend = ingredientDragEnd;
-        itemContainer.onmousemove = event => hasInfoMouseMove(event, gameObjects[itemContainer.id]);
-        itemContainer.onmouseover = event => examine(event, gameObjects[itemContainer.id]);
-        itemContainer.onmouseout = event => hideInfoPanel();
-        
-        let itemDOM = document.createElement("img");
-        itemDOM.src = shelf.inventory[i][j].imgSrc;
-        itemDOM.draggable = false;
-        itemDOM.onload = () => sizeShelfItem(itemDOM);
-        shelfSpot.appendChild(itemContainer);
-        itemContainer.appendChild(itemDOM);
+        shelfSpot.appendChild(createContainerDOM(shelf.inventory[i][j]));
       }
       
       shelfSpot.ondragover = function(ev) {
