@@ -1,11 +1,12 @@
 function resizeCanvases() {
-  let canvases = document.getElementsByTagName("canvas");
+  let canvases = document.getElementsByClassName("rendered-canvas");
   for(let canvas of canvases) {
     canvas.width = canvas.parentNode.offsetWidth;
     canvas.height = canvas.parentNode.offsetHeight;
-    if(canvas.id.includes("cauldron")) {
+    let obj = gameObjects[canvas.id];
+    if(obj instanceof Cauldron) {
       renderCauldron(canvas.id);
-    } else if(canvas.id.includes("container")) {
+    } else if(obj instanceof Container) {
       renderContainer(canvas.id);
     }
   }
@@ -13,9 +14,11 @@ function resizeCanvases() {
 
 var idCounter = 0;
 function linkIds(name, dom, obj) {
-  let id = `${name}${idCounter}`;
-  idCounter++;
+  if(!obj.id) {
+    obj.id = `${idCounter}`;
+    idCounter++;
+  }
+  let id = `${obj.id}-${name}`;
   dom.id = id;
-  obj.id = id;
   gameObjects[id] = obj;
 }

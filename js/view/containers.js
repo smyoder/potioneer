@@ -1,6 +1,7 @@
 function createContainerDOM(container) {
   let dragDOM = document.createElement("div");
   dragDOM.classList.add("drag-box");
+  linkIds("drag-box", dragDOM, container);
   dragDOM.draggable = true;
   dragDOM.ondragstart = dragIngredient;
   dragDOM.ondragend = ingredientDragEnd;
@@ -11,10 +12,11 @@ function createContainerDOM(container) {
   let canvasSizer = document.createElement("div");
   canvasSizer.classList.add("canvas-container");
   
-  let containerDOM = document.createElement("canvas");
-  containerDOM.draggable = false;
-  linkIds("container", containerDOM, container)
-  containerDOM.onload = () => sizeShelfItem(containerDOM);
+  let canvas = document.createElement("canvas");
+  canvas.classList.add("rendered-canvas");
+  canvas.draggable = false;
+  linkIds("canvas", canvas, container)
+  canvas.onload = () => sizeShelfItem(canvas);
   
   let containerImage = document.getElementById(container.backImgId);
   canvasSizer.style.aspectRatio = `${containerImage.width} / ${containerImage.height}`;
@@ -24,7 +26,7 @@ function createContainerDOM(container) {
     canvasSizer.style.maxHeight = "100%";
   }
   
-  canvasSizer.appendChild(containerDOM);
+  canvasSizer.appendChild(canvas);
   dragDOM.appendChild(canvasSizer);
   
   return dragDOM;

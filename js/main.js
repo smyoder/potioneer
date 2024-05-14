@@ -28,6 +28,4 @@ const HEAT_PER_TICK = 10;
 
 // Game data
 var objectMap = {};
-var canvas = document.getElementById(cauldron.id);
-
 var examining = false;
