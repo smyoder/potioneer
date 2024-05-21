@@ -16,11 +16,11 @@ for(let i = 0; i < 2; i++) {
   }
 }
 initWorkshop(workshop);
-resizeCanvases();
+View.resizeCanvases();
 
 // Add listeners
 document.onkeyup = shortcuts;
-window.onresize = resizeCanvases;
+window.onresize = View.resizeCanvases;
 
 // Game constants
 const FILL_PER_TICK = 1;

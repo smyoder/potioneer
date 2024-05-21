@@ -21,10 +21,10 @@ function initWorkshop(workshop) {
 /************************Caludron Stand*************************/
 function createCauldronStand(stand) {
   let standDOM = document.getElementById("cauldron-stand-factory").cloneNode(true);
-  linkIds("cauldron-stand", standDOM, stand);
+  View.linkIds("cauldron-stand", standDOM, stand);
   let cauldronDOM = standDOM.querySelector("#cauldron-canvas");
   cauldronDOM.classList.add("rendered-canvas");
-  linkIds("canvas", cauldronDOM, stand.cauldron);
+  View.linkIds("canvas", cauldronDOM, stand.cauldron);
   return standDOM;
 }
 
@@ -56,7 +56,7 @@ function dropIngredient(ev, target) {
 
 function createShelf(shelf) {
   let shelfDOM = document.getElementById("shelf-factory").cloneNode(true);
-  linkIds("shelf", shelfDOM, shelf);
+  View.linkIds("shelf", shelfDOM, shelf);
   
   // For each row on the shelf
   for(let i = 0; i < shelf.inventory.length; i++) {

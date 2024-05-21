@@ -1,7 +1,7 @@
 function createContainerDOM(container) {
   let dragDOM = document.createElement("div");
   dragDOM.classList.add("drag-box");
-  linkIds("drag-box", dragDOM, container);
+  View.linkIds("drag-box", dragDOM, container);
   dragDOM.draggable = true;
   dragDOM.ondragstart = dragIngredient;
   dragDOM.ondragend = ingredientDragEnd;
@@ -15,7 +15,7 @@ function createContainerDOM(container) {
   let canvas = document.createElement("canvas");
   canvas.classList.add("rendered-canvas");
   canvas.draggable = false;
-  linkIds("canvas", canvas, container)
+  View.linkIds("canvas", canvas, container)
   canvas.onload = () => sizeShelfItem(canvas);
   
   let containerImage = document.getElementById(container.backImgId);
